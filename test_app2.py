@@ -1,8 +1,8 @@
 import os
 import requests
-from app1 import(
-    example1,
-    example2,
+from app2 import(
+    example3,
+    example4,
 )
 
 
@@ -16,7 +16,7 @@ def test_get_current_directory(monkeypatch):
         return '/data/user/directory123'
 
     monkeypatch.setattr(os, 'getcwd', mock_getcwd)
-    assert example1() == '/data/user/directory123'
+    assert example3() == '/data/user/directory123'
 
 
 def test_get_response_success(monkeypatch):
@@ -39,7 +39,7 @@ def test_get_response_success(monkeypatch):
         return MockResponse()
 
     monkeypatch.setattr(requests, 'get', mock_get)
-    assert example2() == (200, 'http://www.testurl.com')
+    assert example4() == (200, 'http://www.testurl.com')
 
 def test_get_response_failure(monkeypatch):
     """
@@ -60,4 +60,4 @@ def test_get_response_failure(monkeypatch):
         return MockResponse()
 
     monkeypatch.setattr(requests, 'get', mock_get)
-    assert example2() == (404, '')
+    assert example4() == (404, '')
