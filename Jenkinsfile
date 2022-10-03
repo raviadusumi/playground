@@ -20,6 +20,7 @@ pipeline {
     // only branch_event master branch merge from PR 
     stage('bpkg publish'){
       steps{
+        pip install -r requirements.txt
         python3.10 -m pytest test_*
         }
       }
